@@ -64,5 +64,5 @@
             completion-category-overrides '((file (styles basic partial-completion))))
 
 
-(menu-bar-mode nil)
-(tool-bar-mode nil)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
