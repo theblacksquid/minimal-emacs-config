@@ -1,16 +1,54 @@
 
+
+
 (add-to-list 'package-archives
 	                  '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name
+        "straight/repos/straight.el/bootstrap.el"
+        (or (bound-and-true-p straight-base-dir)
+            user-emacs-directory)))
+      (bootstrap-version 7))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+(straight-use-package 'marginalia)
 (require 'marginalia)
+
+(straight-use-package 'orderless)
 (require 'orderless)
+
+(straight-use-package 'vertico)
 (require 'vertico)
+
+(straight-use-package 'embark)
 (require 'embark)
+
+(straight-use-package 'consult)
 (require 'consult)
+
+(straight-use-package 'embark-consult)
 (require 'embark-consult)
+
+(straight-use-package 'which-key)
 (require 'which-key)
+
+(straight-use-package 'rainbow-delimiters)
 (require 'rainbow-delimiters)
+
+(straight-use-package 'company)
 (require 'company)
+
+(straight-use-package 'dracula-theme)
+(load-theme 'dracula t)
 
 (marginalia-mode 1)
 (vertico-mode 1)
