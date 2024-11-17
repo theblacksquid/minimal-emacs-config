@@ -66,3 +66,10 @@
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+
+;; open to a text buffer on startup (because i'm using this on mobile a lot)
+(setq-default inhibit-startup-screen 1)
+(setq inhibit-splash-screen 1)
+(setq inhibit-startup-message 1)
+(setq initial-scratch-message "")
+(setq initial-major-mode 'fundamental-mode)
